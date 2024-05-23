@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Modal from "./components/Modal";
 import { useState  } from 'react';
 import axios from 'axios';
+import Details from "./components/Details";
 
 
 // import getCoords from 'city-to-coords';
@@ -44,7 +45,8 @@ export default function Home() {
       `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
     );
 
-    console.log(weatherResponse) // Send weather data as JSON response
+    // console.log(weatherResponse)
+    setData(weatherResponse.data) // Send weather data as JSON response
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to fetch weather data' }); // Handle errors
@@ -59,6 +61,7 @@ export default function Home() {
     <div>
       <Navbar></Navbar>
       <Hero setModal={setModal}></Hero>
+      <Details data={data}></Details>
 
       <Modal setModal={setModal} show={modal}>
       <h2 className="text-2xl font-semibold mb-4">Enter Your City</h2>
