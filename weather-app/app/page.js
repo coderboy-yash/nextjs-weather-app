@@ -38,7 +38,7 @@ export default function Home() {
   // 1. Fetch coordinates using Geocoding API
   try {
     const geocodingResponse = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${apiKey}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${apiKey}`
     );
 
     const { lat, lon } = geocodingResponse.data[0]; // Get latitude and longitude
