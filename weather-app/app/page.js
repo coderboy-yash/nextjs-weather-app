@@ -6,6 +6,7 @@ import Modal from "./components/Modal";
 import { useState  } from 'react';
 import axios from 'axios';
 import Details from "./components/Details";
+import { useAppContext } from "@/context";
 
 
 // import getCoords from 'city-to-coords';
@@ -13,12 +14,14 @@ import Details from "./components/Details";
 
 
 export default function Home() {
+  const {data,setData}=useAppContext();
+
   
   const [modal, setModal] = useState();
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
-  const [data,setData]=useState("");
+  // const [data,setData]=useState("");
 
 
 
@@ -49,7 +52,7 @@ export default function Home() {
     setData(weatherResponse.data) // Send weather data as JSON response
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to fetch weather data' }); // Handle errors
+    // res.status(500).json({ error: 'Failed to fetch weather data' }); // Handle errors
   }
     
 
@@ -60,8 +63,9 @@ export default function Home() {
   return (
     <div>
       <Navbar></Navbar>
+
       <Hero setModal={setModal}></Hero>
-      <Details data={data}></Details>
+      {data!=""&&<Details data={data}></Details>}
 
       <Modal setModal={setModal} show={modal}>
       <h2 className="text-2xl font-semibold mb-4">Enter Your City</h2>
