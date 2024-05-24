@@ -11,7 +11,7 @@ const Hero = ({setModal}) => {
     
 
     return (
-        <div className='bg-indigo-600 flex justify-between items-center p-4 pt-0 '>
+        <div className='bg-indigo-600 flex md:flex-nowrap flex-wrap justify-between items-center p-4  '>
             <div>
                 <p className=' text-5xl font-semibold text-white'>Welcome to WeatherWise,</p>
                 <p className='text-neutral-50 text-xl my-4'> your ultimate destination for  weather updates, detailed forecasts, and expert insights.</p>

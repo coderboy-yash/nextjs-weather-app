@@ -4,8 +4,8 @@ import React from 'react'
 
 const navbar = () => {
   return (
-    <div className=" flex justify-between items-center pr-32  py-2 pl-2 bg-indigo-600 text-white">
-      <div className='flex gap-4 items-center'>
+    <div className=" flex flex-wrap justify-between gap-4 items-center pr-32  py-2 pl-2 bg-indigo-600 text-white">
+      <div className='flex flex-wrap gap-4 items-center'>
         <Image
         src="/assets/cloudy.png"
         height={100}
